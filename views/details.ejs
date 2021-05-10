@@ -1,0 +1,66 @@
+<%- include('partials/header') %> 
+
+<%- include('partials/nav') %> 
+
+
+
+
+
+<div class="container" id="details_container1">
+    <div class="row">
+        <img class="col-12 col-lg-5 col-md-12 col-sm-12" src="https://image.tmdb.org/t/p/w500/<%=image%>" id="movie_img" alt="">
+        <div class="col-12 col-lg-7 col-md-12 col-sm-12">
+            <h3 class="lead display-4" id="title"><%= title %> </h3>
+            <div>
+                <p id="rating"><%= rating %> </p>
+            </div>
+            <h2>Overview</h2>
+            <p class="lead" id="overview"><%= overview %> </p>
+
+            <ul id="genres">
+                <%for(let g of genres){%>
+                    <li>
+                        <div>
+                            <h3 class="lead moviename"><%=g.name%></h3>
+                        </div>
+                    </li>
+                <%}%>
+                <br>
+                <%if(trailer[0]){%>
+                    <li>
+                        <a href="https://www.youtube.com/watch?v=<%= trailer[0].key %>" target="_blank">
+                            <div style="background-color: red;">
+                                <h3 class="lead moviename"><i class="fab fa-youtube"></i> Trailer</h3>
+                            </div>
+                        </a>
+                    </li>
+                <%}%>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <h3 class="col-12 col-lg-12 lead display-6">Series Cast</h3>
+        <ul class="col-12 col-lg-12" id="cast_container">
+            <%for(let c of cast){%>
+                <li>
+                    <div>
+                        <img src="https://image.tmdb.org/t/p/w500/<%=c.profile_path%>" alt="">
+                        <h3 class="lead moviename"><%=c.original_name%></h3>
+                        <p class="lead"><%= c.character.substring(0,16) %> </p>
+                    </div>
+                </li>
+            <%}%>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+<%- include('partials/footer') %> 

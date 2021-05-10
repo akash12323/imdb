@@ -1,0 +1,174 @@
+
+
+body{
+    background: #495057;
+}
+
+div div div img{
+    height: 50vh;
+}
+
+
+
+
+span{
+    float: right;
+    margin-right: 2%;
+    color: whitesmoke;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 10px;
+}
+span a{
+    color: whitesmoke;
+}
+
+.search .row div{
+    width: 160px;
+    height: 350px;
+    margin: 5px;
+}
+.search .row h3{
+    color: whitesmoke;
+}
+.search .row div img{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    height: 80%;
+}
+.search .row div h3,h5{
+    font-size: 1.2rem;
+    color: whitesmoke;
+}
+
+
+
+
+
+#con1{
+    margin: 4% auto;
+    border: 1px solid #0077b6;
+    border-radius: 5px;
+    padding: 30px;
+    background-image: url(https://kovue.tv/wp-content/uploads/2019/06/netflix-library.jpg);
+    background-position: center;
+    background-size: cover;
+    color: whitesmoke;
+}
+#con1 .row:nth-of-type(2){
+    margin-top: 2%;
+}
+#con1 .row:nth-of-type(2) form input,button{
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+button:active{
+    transform: scale(0.5);
+}
+button:focus{
+    outline: none;
+}
+
+
+
+
+
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    border: 1px solid #343a40;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    margin-top: 2%;
+    color: whitesmoke;
+}
+.container .row ul{
+    margin-top: 15px;
+    list-style: none;
+    /* to show as a grid instead in 1 line */
+    /* white-space: pre-line; */
+    white-space: nowrap;
+    overflow: hidden;
+}
+.container .row ul:hover{
+    overflow: scroll;
+    cursor: pointer;
+}
+.container .row ul li{
+    display: inline-block;
+    margin: 5px;
+}
+.container .row ul li div{
+    width: 160px;
+    height: 350px;
+}
+.container .row ul li div img{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    height: 80%;
+}
+.container .row ul li div h3,h5{
+    font-size: 1.2rem;
+    color: whitesmoke;
+}
+
+
+
+
+
+
+
+#details_container1{
+    background: #495057;
+}
+#details_container1 .row{
+    padding: 20px 0px;
+    height: 100%;
+}
+#details_container1 .row img{
+    min-height: 400px;
+    height: 100%;
+}
+#details_container1 .row div h3,h2{
+    color: white;
+    margin-top: 20px;
+}
+#details_container1 .row div div p{
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid rgb(107, 241, 107);
+    border-radius: 50%;
+    /* border-color: linear-gradient(to right,rgb(107, 241, 107) 0%,rgb(107, 241, 107) 83%,rgb(44, 44, 44) 83% ,rgb(44, 44, 44) 100% ); */
+}
+#details_container1 .row div  p{
+    line-height: 2rem;
+    font-size: 1.2rem;
+    letter-spacing: 1.2px;
+    color: whitesmoke;
+}
+
+#genres{
+    margin: 0px;
+    padding: 0;
+    white-space: normal;
+}
+#genres:hover{
+    overflow: hidden;
+    cursor: pointer;
+}
+#genres li div{
+    background: gray;
+    height: 50px;
+    text-align: center;
+    border-radius: 5px;
+}
+#genres li div h3{
+    padding-top: 10px;
+}

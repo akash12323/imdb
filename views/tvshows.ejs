@@ -1,0 +1,91 @@
+
+
+<%- include('partials/header') %>
+
+<%- include('partials/nav') %> 
+
+
+
+
+<div class="container">
+    <div class="row">
+        <h3 class="col-12 col-lg-12 lead display-6">Popular TV-Shows<span><a href="/tv/popular/all">View All</a></span></h3>
+        <ul class="col-12 col-lg-12" id="popular_shows">
+          <%for(let x of p){%>
+            <li>
+              <a href="/tv/<%= x.id %>/details"><div>
+                <img src="https://image.tmdb.org/t/p/w500/<%=x.poster_path%>" alt="">
+                <h3 class="lead moviename"><%= x.name.substring(0,16) %> </h3>
+                <h5 class="lead"><%=x.first_air_date%></h5>
+                </div>
+              </a>
+            </li>
+          <%}%>
+        </ul>
+    </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+      <h3 class="col-12 col-lg-12 lead display-6">On Air TV-Shows<span><a href="/tv/on_the_air/all">View All</a></span></h3>
+      <ul class="col-12 col-lg-12" id="on_the_air_shows">
+        <%for(let x of onair){%>
+          <li>
+            <a href="/tv/<%= x.id %>/details"><div>
+              <img src="https://image.tmdb.org/t/p/w500/<%=x.poster_path%>" alt="">
+              <h3 class="lead moviename"><%= x.name.substring(0,16) %> </h3>
+              <h5 class="lead"><%=x.first_air_date%></h5>
+              </div>
+            </a>
+          </li>
+        <%}%>
+      </ul>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+      <h3 class="col-12 col-lg-12 lead display-6">Top-Rated TV-Shows<span><a href="/tv/top_rated/all">View All</a></span></h3>
+      <ul class="col-12 col-lg-12" id="toprated_shows">
+        <%for(let x of tr){%>
+          <li>
+            <a href="/tv/<%= x.id %>/details"><div>
+              <img src="https://image.tmdb.org/t/p/w500/<%=x.poster_path%>" alt="">
+              <h3 class="lead moviename"><%= x.name.substring(0,16) %> </h3>
+              <h5 class="lead"><%=x.first_air_date%></h5>
+              </div>
+            </a>
+          </li>
+        <%}%>
+      </ul>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+      <h3 class="col-12 col-lg-12 lead display-6">Airing Today<span><a href="/tv/airing_today/all">View All</a></span></h3>
+      <ul class="col-12 col-lg-12" id="airing_today">
+        <%for(let x of at){%>
+          <li>
+            <a href="/tv/<%= x.id %>/details"><div>
+              <img src="https://image.tmdb.org/t/p/w500/<%=x.poster_path%>" alt="">
+              <h3 class="lead moviename"><%= x.name.substring(0,16) %> </h3>
+              <h5 class="lead"><%=x.first_air_date%></h5>
+              </div>
+            </a>
+          </li>
+        <%}%>
+      </ul>
+  </div>
+</div>
+
+
+
+
+
+
+
+<%- include('partials/footer') %>

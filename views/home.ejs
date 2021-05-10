@@ -1,0 +1,74 @@
+
+
+<%- include('partials/header') %>
+
+<%- include('partials/nav') %> 
+
+
+
+
+
+      <div class="container" id="con1">
+          <div class="row">
+              <h2 class="col-12 col-lg-12 col-md-12 col-sm-12 lead display-2">Welcome</h2>
+              <h3 class="col-12 col-lg-12 col-md-12 col-sm-12 lead display-6">Millions of movies, TV shows and people to discover. Explore now.</h3>
+          </div>
+          <div class="row">
+              <form action="/search" method="GET">
+                  <input type="text" name="title" placeholder="Search......" class="col-6 col-lg-8 col-md-7 col-sm-7">
+                  <button type="submit" class="btn-primary col-2 col-lg-2 col-md-3 col-sm-3">Search</button>
+              </form>
+          </div>
+      </div>
+
+
+
+      <div class="container">
+          <div class="row">
+              <h3 class="col-12 col-lg-12 lead display-6">What's Popular<span>View All</span></h3>
+              
+              <ul class="col-12 col-lg-12" id="popular">
+                <%for(let x of popular){%>
+                    <li>
+                        <a href="/movies/<%= x.id %>/details"><div>
+                            <img src="https://image.tmdb.org/t/p/w500/<%=x.poster_path%>" alt="">
+                            <h3 class="lead moviename"><%= x.title.substring(0,16) %> </h3>
+                            <h5 class="lead"><%=x.release_date%></h5>
+                        </div></a>
+                    </li>
+                <%}%>
+              </ul>
+          </div>
+      </div>
+
+
+      <div class="container">
+        <div class="row">
+            <h3 class="col-12 col-lg-12 lead display-6">Trending<span>View All</span></h3>
+            
+            <ul class="col-12 col-lg-12" id="trending">
+                <%for(let x of trending){%>
+                    <%if(x.media_type=="movie"){%>
+                        <li>
+                            <a href="/movies/<%= x.id %>/details"><div>
+                                <img src="https://image.tmdb.org/t/p/w500/<%=x.poster_path%>" alt="">
+                                <h3 class="lead moviename"><%= x.title.substring(0,16) %> </h3>
+                                <h5 class="lead"><%=x.release_date%></h5>
+                            </div></a>
+                        </li>
+                    <%}else{%>
+                        <li>
+                            <a href="/tv/<%= x.id %>/details"><div>
+                                <img src="https://image.tmdb.org/t/p/w500/<%=x.poster_path%>" alt="">
+                                <h3 class="lead moviename"><%= x.name.substring(0,16) %> </h3>
+                                <h5 class="lead"><%=x.first_air_date%></h5>
+                            </div></a>
+                        </li>
+                    <%}%>
+                <%}%>
+            </ul>
+        </div>
+    </div>
+
+
+<%- include('partials/footer') %> 
