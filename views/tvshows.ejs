@@ -5,11 +5,12 @@
 <%- include('partials/nav') %> 
 
 
+<% let page = 1 %> 
 
 
 <div class="container">
     <div class="row">
-        <h3 class="col-12 col-lg-12 lead display-6">Popular TV-Shows<span><a href="/tv/popular/all">View All</a></span></h3>
+        <h3 class="col-12 col-lg-12 lead display-6">Popular TV-Shows<span><a href="/tv/popular/all?page=<%= page %>">View All</a></span></h3>
         <ul class="col-12 col-lg-12" id="popular_shows">
           <%for(let x of p){%>
             <li>
@@ -28,7 +29,7 @@
 
 <div class="container">
   <div class="row">
-      <h3 class="col-12 col-lg-12 lead display-6">On Air TV-Shows<span><a href="/tv/on_the_air/all">View All</a></span></h3>
+      <h3 class="col-12 col-lg-12 lead display-6">On Air TV-Shows<span><a href="/tv/on_the_air/all?page=<%= page %>">View All</a></span></h3>
       <ul class="col-12 col-lg-12" id="on_the_air_shows">
         <%for(let x of onair){%>
           <li>
@@ -47,7 +48,7 @@
 
 <div class="container">
   <div class="row">
-      <h3 class="col-12 col-lg-12 lead display-6">Top-Rated TV-Shows<span><a href="/tv/top_rated/all">View All</a></span></h3>
+      <h3 class="col-12 col-lg-12 lead display-6">Top-Rated TV-Shows<span><a href="/tv/top_rated/all?page=<%= page %>">View All</a></span></h3>
       <ul class="col-12 col-lg-12" id="toprated_shows">
         <%for(let x of tr){%>
           <li>
@@ -66,7 +67,7 @@
 
 <div class="container">
   <div class="row">
-      <h3 class="col-12 col-lg-12 lead display-6">Airing Today<span><a href="/tv/airing_today/all">View All</a></span></h3>
+      <h3 class="col-12 col-lg-12 lead display-6">Airing Today<span><a href="/tv/airing_today/all?page=<%= page %>">View All</a></span></h3>
       <ul class="col-12 col-lg-12" id="airing_today">
         <%for(let x of at){%>
           <li>

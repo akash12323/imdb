@@ -5,12 +5,12 @@
 
 
 
-
+<% let page = 1 %> 
 
 
 <div class="container">
     <div class="row">
-        <h3 class="col-12 col-lg-12 lead display-6">Popular Movies<span><a href="/movies/popular/all">View All</a></span></h3>
+        <h3 class="col-12 col-lg-12 lead display-6">Popular Movies<span><a href="/movies/popular/all?page=<%= page %>">View All</a></span></h3>
         <ul class="col-12 col-lg-12" id="popularMovies">
             <%for(let x of p){%>
               <li>
@@ -29,7 +29,7 @@
 
 <div class="container">
   <div class="row">
-      <h3 class="col-12 col-lg-12 lead display-6">Top Rated Movies<span><a href="/movies/top_rated/all">View All</a></span></h3>
+      <h3 class="col-12 col-lg-12 lead display-6">Top Rated Movies<span><a href="/movies/top_rated/all?page=<%= page %>">View All</a></span></h3>
       <ul class="col-12 col-lg-12" id="topratedMovies">
         <%for(let x of tr){%>
           <li>
@@ -48,7 +48,7 @@
 
 <div class="container">
   <div class="row">
-      <h3 class="col-12 col-lg-12 lead display-6">Upcoming Movies<span><a href="/movies/upcoming/all">View All</a></span></h3>
+      <h3 class="col-12 col-lg-12 lead display-6">Upcoming Movies<span><a href="/movies/upcoming/all?page=<%= page %>">View All</a></span></h3>
       <ul class="col-12 col-lg-12" id="upcomingMovies">
         <%for(let x of up){%>
           <li>
@@ -67,7 +67,7 @@
 
 <div class="container">
   <div class="row">
-      <h3 class="col-12 col-lg-12 lead display-6">Now-Playing Movies<span><a href="/movies/now_playing/all">View All</a></span></h3>
+      <h3 class="col-12 col-lg-12 lead display-6">Now-Playing Movies<span><a href="/movies/now_playing/all?page=<%= page %>">View All</a></span></h3>
       <ul class="col-12 col-lg-12" id="nowPlayingMovies">
         <%for(let x of np){%>
           <li>

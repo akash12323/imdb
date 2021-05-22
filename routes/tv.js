@@ -45,36 +45,36 @@ router.get('/tv/:id/details',async (req,res)=>{
 
 
 router.get('/tv/popular/all',async(req,res)=>{
-    const popular_url = `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}`;
+    const popular_url = `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&page=${req.query.page}`;
     const p_response = await axios.get(popular_url);
 
     const title = "Popular TV-Shows"
 
-    res.render('all',{res:p_response.data.results, title});
+    res.render('all',{res:p_response.data.results, title, page:req.query.page});
 })
 router.get('/tv/on_the_air/all',async(req,res)=>{
-    const popular_url = `https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.API_KEY}`;
+    const popular_url = `https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.API_KEY}&page=${req.query.page}`;
     const p_response = await axios.get(popular_url);
 
     const title = "On-Air TV-Shows"
 
-    res.render('all',{res:p_response.data.results, title});
+    res.render('all',{res:p_response.data.results, title, page:req.query.page});
 })
 router.get('/tv/top_rated/all',async(req,res)=>{
-    const popular_url = `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}`;
+    const popular_url = `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&page=${req.query.page}`;
     const p_response = await axios.get(popular_url);
 
     const title = "Top Rated TV-Shows"
 
-    res.render('all',{res:p_response.data.results, title});
+    res.render('all',{res:p_response.data.results, title, page:req.query.page});
 })
 router.get('/tv/airing_today/all',async(req,res)=>{
-    const popular_url = `https://api.themoviedb.org/3/tv/airing_today?api_key=${process.env.API_KEY}`;
+    const popular_url = `https://api.themoviedb.org/3/tv/airing_today?api_key=${process.env.API_KEY}&page=${req.query.page}`;
     const p_response = await axios.get(popular_url);
 
     const title = "Airing Today TV-Shows"
 
-    res.render('all',{res:p_response.data.results, title});
+    res.render('all',{res:p_response.data.results, title, page:req.query.page});
 })
 
 

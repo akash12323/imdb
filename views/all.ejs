@@ -4,11 +4,29 @@
 
 <%- include('partials/nav') %> 
 
+
+
       <div class="search" style="width: 85vw; margin: 20px auto;">
         <div class="row">            
             <h3 class="col-12 col-lg-12 lead display-6"><%= title.toUpperCase() %> </h3>
             <%for(let x of res){%>
-                <%if(title.indexOf("Movies")!= -1){%>
+                <%if(title.indexOf("Movies")!= -1 && title.indexOf('TV-Shows')!= -1){%>
+                    <div class="col-12">
+                        <% if(x.media_type == 'movie'){ %> 
+                            <a href="/movies/<%= x.id %>/details"><div>
+                                <img src="https://image.tmdb.org/t/p/w500/<%=x.poster_path%>" alt="">
+                                <h3 class="lead moviename"><%= x.title.substring(0,16) %> </h3>
+                                <h5 class="lead"><%=x.release_date%></h5>
+                            </div></a>
+                        <% } else{ %> 
+                            <a href="/tv/<%= x.id %>/details"><div>
+                                <img src="https://image.tmdb.org/t/p/w500/<%=x.poster_path%>" alt="">
+                                <h3 class="lead moviename"><%= x.name.substring(0,16) %> </h3>
+                                <h5 class="lead"><%=x.first_air_date%></h5>
+                            </div></a>
+                        <% } %> 
+                    </div>
+                <% } else if(title.indexOf("Movies")!= -1){%>
                     <div class="col-12">
                         <a href="/movies/<%= x.id %>/details"><div>
                             <img src="https://image.tmdb.org/t/p/w500/<%=x.poster_path%>" alt="">
@@ -26,6 +44,64 @@
                     </div>
                 <% } %> 
             <%}%>
+        </div>
+
+
+        <div class="row" style="margin: 4% auto; text-align: center;">
+
+            <% if(title.indexOf('Movies')!=-1 && title.indexOf('TV-Shows')!=-1){ %>
+                <% if(page!=1){ %> 
+                    <a class="btn btn-dark col-lg-2" href="/trending/all?page=<%= parseInt(page)-1 %>" style="margin-right: 10px;">Previous</a>
+                <% } %> 
+                <a class="btn btn-dark col-lg-2" href="/trending/all?page=<%= parseInt(page)+1 %>">Next</a>
+            <% }else if(title.indexOf('Movies')!=-1){ %> 
+                
+                <% if(title.indexOf('Popular')!=-1){ %> 
+                    <% if(page!=1){ %> 
+                        <a class="btn btn-dark col-lg-2" href="/movies/popular/all?page=<%= parseInt(page)-1 %>" style="margin-right: 10px;">Previous</a>
+                    <% } %> 
+                    <a class="btn btn-dark col-lg-2" href="/movies/popular/all?page=<%= parseInt(page)+1 %>">Next</a>
+                <% } else if(title.indexOf('Upcoming')!=-1){ %> 
+                    <% if(page!=1){ %> 
+                        <a class="btn btn-dark col-lg-2" href="/movies/upcoming/all?page=<%= parseInt(page)-1 %>" style="margin-right: 10px;">Previous</a>
+                    <% } %> 
+                    <a class="btn btn-dark col-lg-2" href="/movies/upcoming/all?page=<%= parseInt(page)+1 %>">Next</a>
+                <% } else if(title.indexOf('Top-Rated')!=-1){ %> 
+                    <% if(page!=1){ %> 
+                        <a class="btn btn-dark col-lg-2" href="/movies/top_rated/all?page=<%= parseInt(page)-1 %>" style="margin-right: 10px;">Previous</a>
+                    <% } %> 
+                    <a class="btn btn-dark col-lg-2" href="/movies/top_rated/all?page=<%= parseInt(page)+1 %>">Next</a>
+                <% } else if(title.indexOf('Now Playing')!=-1){ %> 
+                    <% if(page!=1){ %> 
+                        <a class="btn btn-dark col-lg-2" href="/movies/now_playing/all?page=<%= parseInt(page)-1 %>" style="margin-right: 10px;">Previous</a>
+                    <% } %>
+                    <a class="btn btn-dark col-lg-2" href="/movies/now_playing/all?page=<%= parseInt(page)+1 %>">Next</a>
+                <% }%> 
+
+            <% }else if(title.indexOf('TV-Shows')!=-1){ %> 
+                
+                <% if(title.indexOf('Popular')!=-1){ %> 
+                    <% if(page!=1){ %> 
+                        <a class="btn btn-dark col-lg-2" href="/tv/popular/all?page=<%= parseInt(page)-1 %>" style="margin-right: 10px;">Previous</a>
+                    <% } %> 
+                    <a class="btn btn-dark col-lg-2" href="/tv/popular/all?page=<%= parseInt(page)+1 %>">Next</a>
+                <% } else if(title.indexOf('Airing')!=-1){ %> 
+                    <% if(page!=1){ %> 
+                        <a class="btn btn-dark col-lg-2" href="/tv/airing_today/all?page=<%= parseInt(page)-1 %>" style="margin-right: 10px;">Previous</a>
+                    <% } %> 
+                    <a class="btn btn-dark col-lg-2" href="/tv/airing_today/all?page=<%= parseInt(page)+1 %>">Next</a>
+                <% } else if(title.indexOf('Top-Rated')!=-1){ %> 
+                    <% if(page!=1){ %> 
+                        <a class="btn btn-dark col-lg-2" href="/tv/top_rated/all?page=<%= parseInt(page)-1 %>" style="margin-right: 10px;">Previous</a>
+                    <% } %> 
+                    <a class="btn btn-dark col-lg-2" href="/tv/top_rated/all?page=<%= parseInt(page)+1 %>">Next</a>
+                <% } else if(title.indexOf('On Air')!=-1){ %> 
+                    <% if(page!=1){ %> 
+                        <a class="btn btn-dark col-lg-2" href="/tv/on_the_air/all?page=<%= parseInt(page)-1 %>" style="margin-right: 10px;">Previous</a>
+                    <% } %>
+                    <a class="btn btn-dark col-lg-2" href="/tv/on_the_air/all?page=<%= parseInt(page)+1 %>">Next</a>
+                <% }%> 
+            <% } %> 
         </div>
     </div>
 

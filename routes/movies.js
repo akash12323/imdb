@@ -41,32 +41,32 @@ router.get('/movies/:id/details',async (req,res)=>{
 })
 
 router.get('/movies/popular/all',async(req,res)=>{
-    const popular_url = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`;
+    const popular_url = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&page=${req.query.page}`;
     const p_response = await axios.get(popular_url);
 
     const title = "Popular Movies";
-    res.render('all',{res:p_response.data.results, title});
+    res.render('all',{res:p_response.data.results, title,page:req.query.page});
 })
 router.get('/movies/upcoming/all',async(req,res)=>{
-    const popular_url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}`;
+    const popular_url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}&page=${req.query.page}`;
     const p_response = await axios.get(popular_url);
 
     const title = "Upcoming Movies";
-    res.render('all',{res:p_response.data.results, title});
+    res.render('all',{res:p_response.data.results, title ,page:req.query.page});
 })
 router.get('/movies/top_rated/all',async(req,res)=>{
-    const popular_url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.API_KEY}`;
+    const popular_url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.API_KEY}&page=${req.query.page}`;
     const p_response = await axios.get(popular_url);
 
     const title = "Top-Rated Movies";
-    res.render('all',{res:p_response.data.results, title});
+    res.render('all',{res:p_response.data.results, title ,page:req.query.page});
 })
 router.get('/movies/now_playing/all',async(req,res)=>{
-    const popular_url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.API_KEY}`;
+    const popular_url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.API_KEY}&page=${req.query.page}`;
     const p_response = await axios.get(popular_url);
 
     const title = "Now Playing Movies";
-    res.render('all',{res:p_response.data.results, title});
+    res.render('all',{res:p_response.data.results, title ,page:req.query.page});
 })
 
 module.exports = router;

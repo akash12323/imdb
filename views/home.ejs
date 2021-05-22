@@ -4,8 +4,7 @@
 
 <%- include('partials/nav') %> 
 
-
-
+<% let page = 1 %> 
 
 
       <div class="container" id="con1">
@@ -15,7 +14,7 @@
           </div>
           <div class="row">
               <form action="/search" method="GET">
-                  <input type="text" name="title" placeholder="Search......" class="col-10 col-lg-8 col-md-7 col-sm-10" style="margin-bottom: 10px;">
+                  <input type="text" name="title" placeholder="Search......" class="col-10 col-lg-8 col-md-7 col-sm-10" value="" style="margin-bottom: 10px;">
                   <button type="submit" class="btn-primary col-3 col-lg-2 col-md-3 col-sm-4">Search</button>
               </form>
           </div>
@@ -25,7 +24,7 @@
 
       <div class="container">
           <div class="row">
-              <h3 class="col-12 col-lg-12 lead display-6">What's Popular<span>View All</span></h3>
+              <h3 class="col-12 col-lg-12 lead display-6">What's Popular<span><a href="/popular/all?page=<%= page %>">View All</a></span></h3>
               
               <ul class="col-12 col-lg-12" id="popular">
                 <%for(let x of popular){%>
@@ -44,7 +43,7 @@
 
       <div class="container">
         <div class="row">
-            <h3 class="col-12 col-lg-12 lead display-6">Trending<span>View All</span></h3>
+            <h3 class="col-12 col-lg-12 lead display-6">Trending<span><a href="/trending/all?page=<%= page %>">View All</a></span></span></h3>
             
             <ul class="col-12 col-lg-12" id="trending">
                 <%for(let x of trending){%>
@@ -69,6 +68,7 @@
             </ul>
         </div>
     </div>
+
 
 
 <%- include('partials/footer') %> 
